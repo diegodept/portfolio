@@ -1,0 +1,241 @@
+/* ---------------- RESET ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: white;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+  font-size: 30px;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  color: rgba(0, 0, 0, 0.253);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  color: black;
+}
+
+.hamburger,
+.close-menu {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+  z-index: 20;
+  margin-left: auto;
+}
+
+/* ---------------- LANDING ---------------- */
+.landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* LEFT COLUMN: image aligned to the right */
+.left {
+  display: flex;
+  justify-content: flex-end; /* ✅ Push image to the right side */
+  align-items: center;
+  padding-right: 2rem; /* Optional spacing from edge */
+  z-index: 0;
+}
+
+.parallax-image {
+  width: auto;
+  height: 90vh;
+  object-fit: contain;
+  transform: scale(1.1); /* Subtle zoom */
+  opacity: 0;            /* For animation */
+  will-change: transform, opacity;
+}
+
+/* RIGHT COLUMN: text at bottom */
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* ✅ Push to bottom */
+  padding: 2rem;
+  z-index: 1;
+}
+
+.parallax-title {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 4rem;
+  color: black;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: left;
+  opacity: 0;                 /* For animation */
+  transform: translateY(50px); /* Slide up animation */
+  will-change: transform, opacity;
+  margin-bottom: 60px;
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+.projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  padding: 2rem;
+   /* Centers the text horizontally */
+}
+
+.bio h2 {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #222;
+  line-height: 1.6;
+  max-width: 90%;  /* Keeps the text from being too wide */
+  margin: 0 auto;    /* enters within the section */
+  text-transform: uppercase;
+  line-height: 3rem;
+  text-align: center;
+}
+
+
+
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(34, 34, 34, 0.95);
+    display: none;
+  }
+
+  .nav-links a {
+    color: white;
+    font-size: 50px;
+  }
+
+  .nav-links li {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+  }
+
+  .hamburger {
+    display: block;
+    color: black;
+  }
+
+  .close-menu {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links.active ~ .close-menu {
+    display: block;
+  }
+
+  .nav-links.active ~ .hamburger {
+    display: none;
+  }
+
+  /* Landing stacked for mobile */
+  .landing {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    position: relative;
+  }
+
+  .left {
+    justify-content: center; /* Center image on mobile */
+    padding-right: 0;
+  }
+
+  .left img {
+    height: 80vh;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    margin-top: -20px;
+  }
+
+  .right {
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+    box-sizing: border-box;
+    height: auto;
+  }
+
+  .parallax-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-top: -50px;
+  }
+
+  .projects h2,
+  .bio h2 {
+    font-size: 2.5rem;
+  }
+}

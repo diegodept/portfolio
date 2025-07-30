@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>diegodept.</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <!-- <div class="logo">MyLogo</div> -->
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Bio</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger icon -->
+      <div class="hamburger" id="hamburger">☰</div>
+
+      <!-- Close icon for mobile -->
+      <div class="close-menu" id="close-menu">✖</div>
+    </nav>
+  </header>
+
+<section class="landing" id="home">
+  <div class="left">
+    <img src="/images/yo2.jpg" alt="Landing Image" class="parallax-image" />
+  </div>
+  <div class="right">
+    <h1 class="parallax-title">
+      Hey, I'm Diego Soto<br />
+      a web developer<br />
+      Based in NZ
+    </h1>
+  </div>
+</section>
+
+
+
+
+
+  <section class="bio" id="about">
+    <h2>I recently completed a diploma in web development, where I focused on building modern, responsive websites using tools like React, JavaScript, and Tailwind CSS.
+Through my studies, I designed and launched a real-world project that combined my technical skills with entrepreneurship — an experience that deepened my love for crafting clean, functional, and engaging digital experiences.
+
+Let’s connect! I’m open to freelance work, collaborations, or full-time opportunities.</h2>
+  </section>
+
+
+  <section class="projects">
+    <h2>Projects</h2>
+  </section>
+  
+
+  
+  
+  
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/bundled/lenis.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+// Landing animations
+gsap.timeline()
+  .to(".parallax-image", { opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" })
+  .to(".parallax-title", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, "-=1");
+
+// Parallax scroll
+gsap.to(".parallax-image", {
+  yPercent: 0,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".landing",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+});
+
+gsap.to(".parallax-title", {
+  yPercent: -40,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".landing",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+});
+
+// Bio text animation with SplitType
+const bioSections = document.querySelectorAll('.bio h2');
+
+bioSections.forEach((section) => {
+  const text = new SplitType(section, { types: 'words' }); // ✅ split by words
+
+  gsap.from(text.words, {
+    scrollTrigger: {
+      trigger: section,
+      start: 'top 80%',
+      end: 'top 20%',
+      scrub: 1,
+    },
+    opacity: 0.2,
+    y: 0,
+    stagger: 0.5, // ✅ smooth wave effect
+  });
+});
+
+
+// Lenis smooth scroll
+// Super Smooth Lenis Scroll
+const lenis = new Lenis({
+  duration: 2.0,        // ⬆️ slower scroll (1.2 → 2.0)
+  easing: (t) => 1 - Math.pow(1 - t, 3), // ⬆️ smooth easing curve
+  smooth: true,         
+  smoothTouch: false,   // keep mobile natural
+  direction: 'vertical',
+  gestureDirection: 'vertical',
+  infinite: false
+});
+
+// Update ScrollTrigger on Lenis scroll
+lenis.on('scroll', ScrollTrigger.update);
+
+// GSAP ticker for Lenis
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
+
+
+// Smooth scroll for menu links
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) lenis.scrollTo(target);
+  });
+});
+</script>
+
+<script>
+const landingImg = document.querySelector(".left img");
+
+landingImg.addEventListener("mouseenter", () => {
+  gsap.to(landingImg, {
+    scale: 1.05,
+    duration: 0.6,
+    ease: "power2.out",
+  });
+});
+
+landingImg.addEventListener("mouseleave", () => {
+  gsap.to(landingImg, {
+    scale: 1,
+    duration: 0.6,
+    ease: "power2.out",
+  });
+});
+
+</script>
+
+
+
+  
+    
+
+</body>
+</html>
