@@ -245,3 +245,14 @@ body {
   margin-right: auto;
 }
 
+.projects p {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+  color: #222;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
