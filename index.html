@@ -21,8 +21,8 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">Bio</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
 
       <!-- Hamburger icon -->
@@ -36,6 +36,7 @@
 <section class="landing" id="home">
   <div class="left">
     <img src="/images/yo2.jpg" alt="Landing Image" class="parallax-image" />
+    <img src="/images/skate.jpg" alt="Overlay Image" class="overlay-image" />
   </div>
   <div class="right">
     <h1 class="parallax-title">
@@ -50,7 +51,9 @@
 
 
 
+
   <section class="bio" id="about">
+    <h1 id="bio-title">BIO</h1>
     <h2>I recently completed a diploma in web development, where I focused on building modern, responsive websites using tools like React, JavaScript, and Tailwind CSS.
 Through my studies, I designed and launched a real-world project that combined my technical skills with entrepreneurship — an experience that deepened my love for crafting clean, functional, and engaging digital experiences.
 
@@ -58,9 +61,17 @@ Let’s connect! I’m open to freelance work, collaborations, or full-time oppo
   </section>
 
 
-  <section class="projects">
-    <h2>Projects</h2>
-  </section>
+  <section id="projects" class="projects">
+  <h1>Projects</h1>
+  <h2><a href="https://pastagonianz.com" target="_blank">Pastagonia nz</a></h2>
+</section>
+
+
+<section id="contact" class="contact">
+  <h1>CONTACT</h1>
+  <h2>dfsotorojas@gmail.com</h2>
+</section>
+
   
 
   
@@ -83,7 +94,20 @@ gsap.timeline()
 
 // Parallax scroll
 gsap.to(".parallax-image", {
-  yPercent: 0,
+  yPercent: 10,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".landing",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+});
+
+
+
+gsap.to(".overlay-image", {
+  yPercent: -10,
   ease: "none",
   scrollTrigger: {
     trigger: ".landing",
@@ -94,7 +118,7 @@ gsap.to(".parallax-image", {
 });
 
 gsap.to(".parallax-title", {
-  yPercent: -40,
+  yPercent: -100,
   ease: "none",
   scrollTrigger: {
     trigger: ".landing",
@@ -103,6 +127,7 @@ gsap.to(".parallax-title", {
     scrub: true,
   },
 });
+
 
 // Bio text animation with SplitType
 const bioSections = document.querySelectorAll('.bio h2');
@@ -176,6 +201,8 @@ landingImg.addEventListener("mouseleave", () => {
 });
 
 </script>
+
+
 
 
 
