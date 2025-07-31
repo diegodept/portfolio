@@ -48,30 +48,25 @@
 </section>
 
 
-
-
-
-
-  <section class="bio" id="about">
-    <h1 id="bio-title">BIO</h1>
-    <h2>I recently completed a diploma in web development, where I focused on building modern, responsive websites using tools like React, JavaScript, and Tailwind CSS.
-    Through my studies, I designed and launched a real-world project that combined my technical skills with entrepreneurship — an experience that deepened my love for crafting clean, functional, and engaging digital experiences.
-    Let’s connect! I’m open to freelance work, collaborations, or full-time opportunities.</h2>
-  </section>
-
- <section id="tech" class="tech">
-  <h1>TECHNOLOGIES</h1>
+ <section class="bio" id="about">
+  <h1 id="bio-title">BIO</h1>
   <h2>
-    <span class="tech-item">JAVASCRIPT</span><br>
-    <span class="tech-item">REACT</span><br>
-    <span class="tech-item">NODE</span><br>
-    <span class="tech-item">GSAP</span><br>
-    <span class="tech-item">VITE</span><br>
-    <span class="tech-item">TAILWIND</span><br>
-    <span class="tech-item">FIGMA</span><br>
-    <span class="tech-item">GIT</span><br>
+    I recently completed a diploma in web development, where I focused on building modern, responsive websites using tools like React, JavaScript, and Tailwind CSS.
+    Through my studies, I designed and launched a real-world project that combined my technical skills with entrepreneurship — an experience that deepened my love for crafting clean, functional, and engaging digital experiences.
+    Let’s connect! I’m open to freelance work, collaborations, or full-time opportunities.
   </h2>
+
 </section>
+
+ 
+<section id="two-images" class="two-images">
+  <div class="image-row">
+    <img src="/images/skate.jpg" alt="Left Image" class="image-left" />
+    <img src="/images/yo3.jpg" alt="Right Image" class="image-right" />
+  </div>
+</section>
+
+
 
 
   <section id="projects" class="projects">
@@ -199,6 +194,30 @@ landingImg.addEventListener("mouseleave", () => {
     ease: "power2.out",
   });
 });
+
+// Parallax effect for two images
+gsap.to(".image-left", {
+  yPercent: -10,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#two-images",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+});
+
+gsap.to(".image-right", {
+  yPercent: 10,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#two-images",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+});
+
 
 </script>
 

@@ -9,6 +9,10 @@ html, body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
 }
@@ -89,9 +93,6 @@ body {
   animation: fadeInZoom 1.2s ease forwards;
 }
 
-
-
-
 @keyframes fadeInZoom {
   0% { opacity: 0; transform: scale(1.1); }
   100% { opacity: 1; transform: scale(1); }
@@ -107,12 +108,11 @@ body {
   position: relative; /* ⬅️ Required for z-index to work! */
 }
 
-
 .parallax-title {
   font-family: "Roboto Flex", sans-serif;
   font-weight: 800;
   font-size: 4rem;
-  color: black;
+  color: #222;
   line-height: 1;
   text-transform: uppercase;
   text-align: left;
@@ -123,7 +123,7 @@ body {
 }
 
 /* ---------------- SECTIONS ---------------- */
-.projects, .bio, .contact, .tech {
+.projects, .bio, .contact, .two-images {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -168,33 +168,29 @@ body {
   transform: scale(1.05);
 }
 
-.tech h2 {
-  font-family: "Roboto Flex", sans-serif;
-  font-weight: 800;
-  font-size: 2.5rem;
-  color: #0000005e;
-  text-transform: uppercase;
+.two-images {
   text-align: center;
-  line-height: 3.5rem;
+  padding: 2rem;
+  
 }
 
-.tech h1 {
-  line-height: 5rem;
+.image-row {
+  display: flex;
+  justify-content: center; /* centers the images */
+  gap: 5rem; /* smaller gap between them */
+  align-items: center;
+  margin-top: 2rem;
 }
 
-.tech-item {
-  display: inline-block;
-  transition: transform 0.3s ease, color 0.3s ease;
-  cursor: pointer;
+.image-right {
+  width: 40%; /* Adjust size as needed */
+  height: auto;
 }
 
-.tech-item:hover {
-  color: black;
-  transform: scale(1.05);
+.image-left {
+  width: 30%; /* Adjust size as needed */
+  height: auto;
 }
-
-
-
 
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
@@ -234,3 +230,11 @@ body {
     font-size: 2.5rem;
   }
 }
+
+/* ——— Added to center projects and two-images-section horizontally ——— */
+.projects {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
