@@ -97,16 +97,6 @@ body {
   100% { opacity: 1; transform: scale(1); }
 }
 
-.overlay-image {
-  position: absolute;
-  width: 40%;
-  top: 15%;
-  left: 60%;
-  transform: translateX(40%);
-  z-index: 2;
-  transition: transform 0.3s ease;
-}
-
 /* RIGHT COLUMN */
 .right {
   display: flex;
@@ -133,7 +123,7 @@ body {
 }
 
 /* ---------------- SECTIONS ---------------- */
-.projects, .bio, .contact {
+.projects, .bio, .contact, .tech {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -167,6 +157,7 @@ body {
   font-size: 2.5rem;
   color: #0000005e;
   text-decoration: none;
+  
   text-transform: uppercase;
   display: inline-block;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -176,6 +167,34 @@ body {
   color: black;
   transform: scale(1.05);
 }
+
+.tech h2 {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #0000005e;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 3.5rem;
+}
+
+.tech h1 {
+  line-height: 5rem;
+}
+
+.tech-item {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-item:hover {
+  color: black;
+  transform: scale(1.05);
+}
+
+
+
 
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
