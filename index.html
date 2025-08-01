@@ -85,23 +85,33 @@
 
 
   <section id="projects" class="projects">
-   <h1>Projects</h1>
-   <h2><a href="https://pastagonianz.com" target="_blank">Pastagonia nz</a></h2>
-   <p class="description">The official website for Pastagonia NZ, a real pasta business I built as part of my capstone project for my Diploma in Web Development and Design.
+  <div class="projects-left">
+    <h1 class="section-number">01</h1>
+  </div>
+  <div class="projects-right">
+    <h1>Projects</h1>
+    <h2>
+      <a href="https://pastagonianz.com" target="_blank">Pastagonia NZ</a>
+    </h2>
+    <p class="description">
+      The official website for Pastagonia NZ, a real pasta business I built as part of my capstone project for my Diploma in Web Development and Design.
+      This project brought together everything I’ve learned—from responsive design to real world functionality—and supports a growing local brand I’m proud to be part of.
+    </p>
+  </div>
+</section>
 
-This project brought together everything I’ve learned. from responsive design to real world functionality, and supports a growing local brand I’m proud to be part of.</p>
-  </section>
 
 
-  <section id="contact" class="contact">
+<section id="contact" class="contact">
   <h1>CONTACT</h1>
   <h2>dfsotorojas@gmail.com</h2>
   <h2 class="contact-links">
-    <a href="https://www.linkedin.com/in/diegosotorojas/" target="_blank">LINKEDIN</a> /
-    <a href="https://github.com/diegodept" target="_blank">GITHUB</a> /
-    <a href="https://www.instagram.com/diegodept/" target="_blank">INSTAGRAM</a>
+    <a href="https://www.linkedin.com/in/diegosotorojas/" class="stagger" target="_blank">LINKEDIN</a> /
+    <a href="https://github.com/diegodept" class="stagger" target="_blank">GITHUB</a> /
+    <a href="https://www.instagram.com/diegodept/" class="stagger" target="_blank">INSTAGRAM</a>
   </h2>
 </section>
+
 
 
   
@@ -141,6 +151,15 @@ gsap.to(".parallax-title", {
     scrub: true,
   },
 });
+
+
+
+
+
+
+
+
+
 
 
 // Bio text animation with SplitType
@@ -236,6 +255,55 @@ gsap.to(".image-right", {
     scrub: true,
   },
 });
+
+
+// ZOOM EFFECT ---------------------------------------- 
+
+let zoomBio = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".two-images",
+    scrub: 1,
+    pin: true,
+    start: "top top",
+    end: "+=70%", // zoom duration
+  }
+});
+
+zoomBio.to(".image-left", {
+  scale: 2,
+  x: "-80vw",         // Push left image to the left
+  ease: "power2.inOut"
+}, 0);                 // start at the same time
+
+zoomBio.to(".image-right", {
+  scale: 2,
+  x: "80vw",          // Push right image to the right
+  ease: "power2.inOut"
+}, 0);                 // sync both animations
+
+
+
+// let split = new SplitText(".technologies", { type: "lines" });
+// let tlSection2 = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".technologies",
+//     start: "50% 50%",
+//     toggleActions: 'play pause play reset',
+//   }
+// });
+// tlSection2.from(split.lines, {
+//   opacity: 0,
+//   y: 100,
+//   stagger: 0.1
+// });
+
+// ZOOM EFFECT ----------------------------------------
+
+
+
+
+
+
 
 
 </script>

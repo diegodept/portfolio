@@ -7,6 +7,8 @@
 
 html, body {
   overflow-x: hidden;
+  /* background-color: #000; */
+  
 }
 
 html {
@@ -151,11 +153,23 @@ body {
   text-transform: uppercase;
 }
 
-.projects h2 a, .contact h2 a{
+.projects h2 a{
   font-family: "Roboto Flex", sans-serif;
   font-weight: 800;
   font-size: 2.5rem;
   color: #0000005e;
+  text-decoration: none;
+  
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact h2 a{
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: black;
   text-decoration: none;
   
   text-transform: uppercase;
@@ -169,11 +183,26 @@ body {
   transform: scale(1.05);
 }
 
+.description {
+  margin-top: 2rem; /* pushes description down from the link above */
+}
+
+.projects-left h1 {
+  margin-bottom: 70px;
+}
+
 .contact h2 a:hover {
    color: black;
   transform: scale(1.05);
 }
 
+.contact h2 {
+  margin-bottom: 15px;
+}
+
+.contact-links .slash {
+  color: #0000005e;
+}
 
 .two-images {
   text-align: center;
@@ -184,20 +213,79 @@ body {
 .image-row {
   display: flex;
   justify-content: center; /* centers the images */
-  gap: 5rem; /* smaller gap between them */
+  gap: 12rem; /* smaller gap between them */
   align-items: center;
   margin-top: 2rem;
 }
 
 .image-right {
-  width: 40%; /* Adjust size as needed */
+  width: 30%; /* Adjust size as needed */
   height: auto;
 }
 
 .image-left {
-  width: 30%; /* Adjust size as needed */
+  width: 25%; /* Adjust size as needed */
   height: auto;
 }
+
+/* ——— Added to center projects and two-images-section horizontally ——— */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* left number, right content */
+  gap: 2rem;
+  align-items: center; /* ⬅ vertically center both columns */
+  justify-content: center; /* ⬅ center horizontally if grid is narrower than page */
+  height: 100vh; /* ⬅ makes the section full height for perfect vertical centering */
+  padding: 0 15vw; /* remove vertical padding so centering works */
+  
+  
+  
+}
+
+
+.projects-left {
+  display: flex;
+  justify-content: flex-end; /* align number to the right */
+  align-items: flex-start;
+}
+
+.section-number {
+  font-size: 8rem;
+  font-family: "Space Mono", monospace;
+  color: rgba(0, 0, 0, 0.1); /* subtle faded number */
+  line-height: 1;
+}
+
+
+
+
+.projects p {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+  color: #222;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.projects-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ⬅ Aligns all children to the left */
+  text-align: left;        /* ⬅ Makes text left-aligned */
+}
+
+.projects-right h2,
+.projects-right h2 a {
+  text-align: left;        /* ⬅ Forces link to align left */
+  margin-left: 0;          /* ⬅ Remove auto margins */
+}
+
+
+
+
 
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
@@ -206,6 +294,7 @@ body {
     grid-template-rows: auto auto;
     height: auto;
     position: relative;
+    
   }
 
   .left {
@@ -238,21 +327,8 @@ body {
   }
 }
 
-/* ——— Added to center projects and two-images-section horizontally ——— */
-.projects {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.projects p {
-  display: flex;
-  justify-content: center;
-  font-family: "Roboto Flex", sans-serif;
-  font-weight: 800;
-  font-size: 25px;
-  color: #222;
-  line-height: 2rem;
-  text-transform: uppercase;
-}
+
+
+
 
