@@ -8,7 +8,6 @@
 html, body {
   overflow-x: hidden;
   /* background-color: #000; */
-  
 }
 
 html {
@@ -75,6 +74,8 @@ body {
   grid-template-columns: 1fr 1fr;
   height: 100vh;
   width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 /* LEFT COLUMN */
@@ -86,18 +87,21 @@ body {
 }
 
 .parallax-image {
+  position: fixed;
+  top: 50%;
+  left: 600px;              /* Move to the left edge */
+  transform: translate(0, -50%); /* Vertically center only, no horizontal translate */
   width: auto;
   height: 90vh;
   object-fit: contain;
-  /* Initial animation only */
-  opacity: 0;
-  transform: scale(1.1);
+  z-index: -1; /* Keep behind text */
   animation: fadeInZoom 1.2s ease forwards;
 }
 
+
 @keyframes fadeInZoom {
-  0% { opacity: 0; transform: scale(1.1); }
-  100% { opacity: 1; transform: scale(1); }
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
 /* RIGHT COLUMN */
@@ -106,8 +110,8 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   padding: 2rem;
-  z-index: 5; /* ⬆️ Higher than overlay */
-  position: relative; /* ⬅️ Required for z-index to work! */
+  z-index: 5;
+  position: relative;
 }
 
 .parallax-title {
@@ -134,6 +138,7 @@ body {
   padding: 2rem;
   text-align: center;
   box-sizing: border-box;
+  background: white; /* ✅ ensures scrolling over white background */
 }
 
 .bio h1, .projects h1, .contact h1, .technologies h1 {
@@ -159,7 +164,6 @@ body {
   font-size: 2.5rem;
   color: #0000005e;
   text-decoration: none;
-  
   text-transform: uppercase;
   display: inline-block;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -171,12 +175,10 @@ body {
   font-size: 2.5rem;
   color: black;
   text-decoration: none;
-  
   text-transform: uppercase;
   display: inline-block;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-
 
 .projects h2 a:hover {
   color: black;
@@ -184,7 +186,7 @@ body {
 }
 
 .description {
-  margin-top: 2rem; /* pushes description down from the link above */
+  margin-top: 2rem;
 }
 
 .projects-left h1 {
@@ -192,7 +194,7 @@ body {
 }
 
 .contact h2 a:hover {
-   color: black;
+  color: black;
   transform: scale(1.05);
 }
 
@@ -207,57 +209,49 @@ body {
 .two-images {
   text-align: center;
   padding: 2rem;
-  
 }
 
 .image-row {
   display: flex;
-  justify-content: center; /* centers the images */
-  gap: 12rem; /* smaller gap between them */
+  justify-content: center;
+  gap: 12rem;
   align-items: center;
   margin-top: 2rem;
 }
 
 .image-right {
-  width: 30%; /* Adjust size as needed */
+  width: 30%;
   height: auto;
 }
 
 .image-left {
-  width: 25%; /* Adjust size as needed */
+  width: 25%;
   height: auto;
 }
 
-/* ——— Added to center projects and two-images-section horizontally ——— */
+/* ---------------- PROJECTS ---------------- */
 .projects {
   display: grid;
-  grid-template-columns: 1fr 3fr; /* left number, right content */
+  grid-template-columns: 1fr 3fr;
   gap: 2rem;
-  align-items: center; /* ⬅ vertically center both columns */
-  justify-content: center; /* ⬅ center horizontally if grid is narrower than page */
-  height: 100vh; /* ⬅ makes the section full height for perfect vertical centering */
-  padding: 0 15vw; /* remove vertical padding so centering works */
-  
-  
-  
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 15vw;
 }
-
 
 .projects-left {
   display: flex;
-  justify-content: flex-end; /* align number to the right */
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
 .section-number {
   font-size: 8rem;
   font-family: "Space Mono", monospace;
-  color: rgba(0, 0, 0, 0.1); /* subtle faded number */
+  color: rgba(0, 0, 0, 0.1);
   line-height: 1;
 }
-
-
-
 
 .projects p {
   display: flex;
@@ -273,19 +267,15 @@ body {
 .projects-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* ⬅ Aligns all children to the left */
-  text-align: left;        /* ⬅ Makes text left-aligned */
+  align-items: flex-start;
+  text-align: left;
 }
 
 .projects-right h2,
 .projects-right h2 a {
-  text-align: left;        /* ⬅ Forces link to align left */
-  margin-left: 0;          /* ⬅ Remove auto margins */
+  text-align: left;
+  margin-left: 0;
 }
-
-
-
-
 
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
@@ -294,7 +284,6 @@ body {
     grid-template-rows: auto auto;
     height: auto;
     position: relative;
-    
   }
 
   .left {
@@ -326,9 +315,3 @@ body {
     font-size: 2.5rem;
   }
 }
-
-
-
-
-
-
