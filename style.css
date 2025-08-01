@@ -89,10 +89,10 @@ body {
 .parallax-image {
   position: fixed;
   top: 50%;
-  left: 600px;              /* Move to the left edge */
+  left: 290px;              /* Move to the left edge */
   transform: translate(0, -50%); /* Vertically center only, no horizontal translate */
   width: auto;
-  height: 90vh;
+  height: 100vh;
   object-fit: contain;
   z-index: -1; /* Keep behind text */
   animation: fadeInZoom 1.2s ease forwards;
