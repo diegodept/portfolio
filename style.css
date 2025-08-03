@@ -10,6 +10,7 @@ html, body {
   /* background-color: #000; */
 }
 
+
 html {
   scroll-behavior: smooth;
 }
@@ -40,25 +41,28 @@ body {
   font-size: 30px;
 }
 
-.nav-links li { margin-left: 2rem; }
+.nav-links li {
+  margin-left: 2rem;
+}
 
 .nav-links a {
   color: rgba(0, 0, 0, 0.253);
   text-decoration: none;
   transition: color 0.3s;
   font-family: "Roboto Flex", sans-serif;
-  font-weight: 800;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
 .nav-links a.active {
   color: #ff6b00;
-  font-weight: bold;
   border-bottom: 2px solid #ff6b00;
   transition: 0.3s;
 }
 
-.nav-links a:hover { color: black; }
+.nav-links a:hover {
+  color: black;
+}
 
 .hamburger, .close-menu {
   font-size: 2rem;
@@ -89,19 +93,24 @@ body {
 .parallax-image {
   position: fixed;
   top: 50%;
-  left: 290px;              /* Move to the left edge */
-  transform: translate(0, -50%); /* Vertically center only, no horizontal translate */
+  left: 290px;
+  transform: translate(0, -50%);
   width: auto;
   height: 100vh;
   object-fit: contain;
-  z-index: -1; /* Keep behind text */
+  z-index: -1;
   animation: fadeInZoom 1.2s ease forwards;
 }
 
-
 @keyframes fadeInZoom {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 /* RIGHT COLUMN */
@@ -109,14 +118,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
+  padding: 3rem;
   z-index: 5;
   position: relative;
 }
 
 .parallax-title {
   font-family: "Roboto Flex", sans-serif;
-  font-weight: 800;
+  font-weight: 300;
   font-size: 4rem;
   color: #222;
   line-height: 1;
@@ -126,6 +135,7 @@ body {
   transform: translateY(50px);
   will-change: transform, opacity;
   margin-bottom: 60px;
+  margin-left: -200px;
 }
 
 /* ---------------- SECTIONS ---------------- */
@@ -138,7 +148,7 @@ body {
   padding: 2rem;
   text-align: center;
   box-sizing: border-box;
-  background: white; /* ✅ ensures scrolling over white background */
+  background: white;
 }
 
 .bio h1, .projects h1, .contact h1, .technologies h1 {
@@ -147,7 +157,7 @@ body {
   text-transform: uppercase;
 }
 
-.bio h2, .projects h2, .contact h2, .technologies h2 {
+.projects h2, .technologies h2 {
   font-family: "Roboto Flex", sans-serif;
   font-weight: 800;
   font-size: 2.5rem;
@@ -158,7 +168,31 @@ body {
   text-transform: uppercase;
 }
 
-.projects h2 a{
+.contact h2 {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 46px;
+  color: #222;
+  line-height: 3rem;
+  max-width: 90%;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.bio h2 {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  color: #222;
+  line-height: 3rem;
+  max-width: 90%;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+
+
+.projects h2 a {
   font-family: "Roboto Flex", sans-serif;
   font-weight: 800;
   font-size: 2.5rem;
@@ -169,7 +203,7 @@ body {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.contact h2 a{
+.contact h2 a {
   font-family: "Roboto Flex", sans-serif;
   font-weight: 800;
   font-size: 2.5rem;
@@ -180,19 +214,7 @@ body {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.projects h2 a:hover {
-  color: black;
-  transform: scale(1.05);
-}
-
-.description {
-  margin-top: 2rem;
-}
-
-.projects-left h1 {
-  margin-bottom: 70px;
-}
-
+.projects h2 a:hover,
 .contact h2 a:hover {
   color: black;
   transform: scale(1.05);
@@ -206,12 +228,39 @@ body {
   color: #0000005e;
 }
 
+/* ---------------- TWO IMAGES SECTION ---------------- */
 .two-images {
+  position: relative;
   text-align: center;
   padding: 2rem;
+  overflow: hidden;
+}
+
+.two-images .titles {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5vw;
+  pointer-events: none;
+}
+
+.two-images .titles h1 {
+  font-size: 30vw;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.351);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 .image-row {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   gap: 12rem;
@@ -277,6 +326,33 @@ body {
   margin-left: 0;
 }
 
+
+
+.titles {
+  position: relative; /* IMPORTANT */
+  width: 100%;
+  height: 20vh; /* or enough to show the text */
+  margin-bottom: 2rem;
+}
+
+.kia-ora-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(-5deg); /* ✅ both center & tilt */
+  font-size: 10vw;
+  font-weight: 800;
+  font-family: "Roboto Flex", sans-serif;
+  color: black;
+  white-space: nowrap;
+  text-transform: uppercase;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+
+
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
   .landing {
@@ -313,5 +389,25 @@ body {
 
   .projects h2, .bio h2, .contact h2 {
     font-size: 2.5rem;
+  }
+
+  .two-images .titles {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .two-images .titles h1 {
+    font-size: 15vw;
+  }
+
+  .image-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .image-left,
+  .image-right {
+    width: 60%;
   }
 }

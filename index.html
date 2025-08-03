@@ -38,16 +38,22 @@
 <section class="landing" id="home">
   <div class="left">
     <img src="/images/yo2.jpg" alt="Landing Image" class="parallax-image" />
-    
   </div>
   <div class="right">
-    <h1 class="parallax-title">
-      Hey, I'm Diego Soto<br />
-      a web developer<br />
-      Based in NZ &#127475;&#127487;
-    </h1>
+<h1 class="parallax-title">
+  Hey, I'm Diego Soto<br />
+  a web developer<br />
+  Based in NZ 
+</h1>
+
+
+
+
+
   </div>
 </section>
+
+
 
 
  <section class="bio" id="about">
@@ -62,11 +68,16 @@
 
  
 <section id="two-images" class="two-images">
+  <div class="titles">
+    <h1 class="kia-ora-title">HOLA! HOLA! HOLA!</h1>
+  </div>
   <div class="image-row">
-    <img src="/images/skate.jpg" alt="Left Image" class="image-left" />
-    <img src="/images/yo3.jpg" alt="Right Image" class="image-right" />
+    <img src="/images/skate.jpg" class="image-left" />
+    <img src="/images/yo3.jpg" class="image-right" />
   </div>
 </section>
+
+
 
 
 <section id="technologies" class="technologies">
@@ -162,6 +173,9 @@ gsap.to(".parallax-title", {
 
 
 
+
+
+
 // Bio text animation with SplitType
 const bioSections = document.querySelectorAll('.bio h2');
 
@@ -180,6 +194,27 @@ bioSections.forEach((section) => {
     stagger: 0.5, // ✅ smooth wave effect
   });
 });
+
+
+
+
+
+gsap.fromTo(".kia-ora-title",
+  { xPercent: -100 },
+  {
+    xPercent: 100, // keep going to the right
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#two-images",
+      start: "top bottom",       // starts when section hits bottom of viewport
+      end: "+=3000",             // extend the scroll range beyond the section
+      scrub: true,
+    }
+  }
+);
+
+
+
 
 
 // Lenis smooth scroll
